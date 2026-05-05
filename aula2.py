@@ -19,7 +19,7 @@ st.dataframe(df_filtrado)
  if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     
-if 'partido' in df.columns:
+ if 'partido' in df.columns:
         # Tudo aqui dentro deve estar alinhado na mesma coluna
         lista_partidos = df['partido'].unique().tolist()
         partido_selecionado = st.selectbox("Escolha o partido:", options=lista_partidos)
