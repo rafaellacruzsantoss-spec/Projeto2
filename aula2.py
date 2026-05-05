@@ -16,3 +16,9 @@ if uf:
 
 st.dataframe(df_filtrado)
 
+st.subheader("Gráfico Geral de candidatos por partido")
+
+grafico = df['partido'].value_counts()
+
+st.bar_chart(grafico)
+
