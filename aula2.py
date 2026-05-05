@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-st.Title ("Política Aplicada")
+st.Title("Política Aplicada")
 df = pd.read_csv('deputados_2022.csv')
 
 sigla = st.text_input('Digite a sigla do partido')
