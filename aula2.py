@@ -35,4 +35,4 @@ st.dataframe(df_filtrado)
     )
 
     # Exibindo no Streamlit
-st.plotly_chart(fig)
+   st.plotly_chart(fig)
