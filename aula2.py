@@ -17,7 +17,7 @@ if uf:
 st.dataframe(df_filtrado)
 # Criando o gráfico de pizza
         # Troque 'cargo' pelo nome da coluna que você quer ver no gráfico
-        fig = px.pie(df_filtrado, names='partidos', title=f"Divisão por Cargo: {escolha}")
+        fig = px.pie(df_filtrado, names='partidos', title=f"Divisão por partidos: {escolha}")
         st.plotly_chart(fig)
         
     else:
