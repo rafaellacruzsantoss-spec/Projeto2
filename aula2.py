@@ -15,22 +15,11 @@ if uf:
     df_filtrado = df_filtrado[df_filtrado["uf"] == uf.upper()]
 
 st.dataframe(df_filtrado)
-# --- CRIAÇÃO DO GRÁFICO DE PIZZA ---
-if df_filtrado is not None:
-    df = pd.read_csv('df_filtrado')
-    
-if 'partido' in df.columns:
-        # Tudo aqui dentro deve estar alinhado na mesma coluna
-        lista_partidos = df['partido'].unique().tolist()
-        partido_selecionado = st.selectbox("Escolha o partido:", options=lista_partidos)
+# Criando o gráfico de pizza
+        # Troque 'cargo' pelo nome da coluna que você quer ver no gráfico
+        fig = px.pie(df_filtrado, names='partidos', title=f"Divisão por Cargo: {escolha}")
+        st.plotly_chart(fig)
         
-        # O FILTRO:
-        df_filtrado = df[df['partido'] == partido_selecionado]
-
-        # A LINHA QUE DEU ERRO: (Certifique-se que ela está alinhada com o df_filtrado)
-        st.subheader(f"Distribuição para o {partido_selecionado}")
-        
-        # Gráfico...
-        fig = px.pie(df_filtrado, names='sua_coluna_aqui')
-        st.plotly_chart(fig) 
+    else:
+        st.error("Erro: Não achei uma coluna chamada 'partido' no seu arquivo.")
    
