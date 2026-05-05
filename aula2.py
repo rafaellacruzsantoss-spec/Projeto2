@@ -1,4 +1,7 @@
+import streamlit as st
+import pandas as pd
 
+st.title("Filtro de Partidos Políticos")
 st.title("Filtro de Partidos Políticos")
 
 # 1. Upload do arquivo
