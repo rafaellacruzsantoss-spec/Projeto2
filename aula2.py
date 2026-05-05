@@ -17,7 +17,7 @@ if uf:
 st.dataframe(df_filtrado)
 # --- CRIAÇÃO DO GRÁFICO DE PIZZA ---
 if df_filtrado is not None:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv('df_filtrado')
     
 if 'partido' in df.columns:
         # Tudo aqui dentro deve estar alinhado na mesma coluna
