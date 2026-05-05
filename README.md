@@ -1,2 +1,3 @@
 import pandas as pd 
-df = pd.read.csv("deputados_2022.csv")
+df = pd.read.csv('deputados_2022.csv')
+st.dataframe(df)
