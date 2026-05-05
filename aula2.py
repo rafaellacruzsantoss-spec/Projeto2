@@ -16,23 +16,21 @@ if uf:
 
 st.dataframe(df_filtrado)
 # --- CRIAÇÃO DO GRÁFICO DE PIZZA ---
+   if uploaded_file is not None:
+    df = pd.read_csv(uploaded_file)
     
-    st.subheader(f"Distribuição para o {partido_selecionado}")
+    if 'partido' in df.columns:
+        # Tudo aqui dentro deve estar alinhado na mesma coluna
+        lista_partidos = df['partido'].unique().tolist()
+        partido_selecionado = st.selectbox("Escolha o partido:", options=lista_partidos)
+        
+        # O FILTRO:
+        df_filtrado = df[df['partido'] == partido_selecionado]
 
-    # Pergunta: Qual coluna você quer contar para o gráfico? 
-    # Exemplo: 'genero', 'cargo' ou 'estado'
-    coluna_para_pizza = st.selectbox(
-        "Ver proporção de:", 
-        options=df_filtrado.columns
-    )
-
-    # Criando o gráfico com Plotly
-    fig = px.pie(
-        df_filtrado, 
-        names=coluna_para_pizza, 
-        title=f"Proporção de {coluna_para_pizza} no {partido_selecionado}",
-        hole=0.3 # Opcional: transforma em gráfico de rosca
-    )
-
-    # Exibindo no Streamlit
-   st.plotly_chart(fig)
+        # A LINHA QUE DEU ERRO: (Certifique-se que ela está alinhada com o df_filtrado)
+        st.subheader(f"Distribuição para o {partido_selecionado}")
+        
+        # Gráfico...
+        fig = px.pie(df_filtrado, names='sua_coluna_aqui')
+        st.plotly_chart(fig) 
+   
